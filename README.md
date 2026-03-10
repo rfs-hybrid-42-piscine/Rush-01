@@ -9,7 +9,7 @@
   <p><i>Algorithmic problem solving, recursive backtracking, and data parsing.</i></p>
   
   <img src="https://img.shields.io/badge/Language-C-blue" alt="Language badge" />
-  <img src="https://img.shields.io/badge/Grade-100%2F100-success" alt="Grade badge" />
+  <img src="https://img.shields.io/badge/Grade-125%2F100-success" alt="Grade badge" />
   <img src="https://img.shields.io/badge/Norminette-Passing-success" alt="Norminette badge" />
 </div>
 
