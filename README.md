@@ -22,7 +22,6 @@ The objective is to place boxes of height 1 to 4 on each available square. The p
 1. **Uniqueness:** Each row and column must contain exactly one box of each size.
 2. **Visibility:** The numbers provided at the edges of the map dictate exactly how many boxes are visible from that specific point of view. For example, a tall box (height 4) will completely hide any shorter boxes placed behind it.
 
-
 ---
 
 ## 🧠 Core Logic Breakdown: Backtracking
@@ -34,8 +33,11 @@ To solve this puzzle efficiently without hardcoding millions of possibilities, w
 | **1. Parsing Input** | The program receives exactly one argument: a single string containing 16 numbers separated by spaces. We must extract these values (`col1up` through `row4right`) and store them in an array to represent our boundary constraints. Any deviation from this format must be considered an error. |
 | **2. Grid Initialization** | We initialize a 4x4 2D array (our grid) filled with zeros, representing empty spaces. |
 | **3. Recursive Placement** | The core algorithm starts at the top-left coordinate `(0, 0)`. It attempts to place the number `1`. Before placing it, it checks the *Uniqueness* rule: does `1` already exist in this row or column? If not, it places the `1` and recursively moves to the next coordinate `(0, 1)`. |
-| **4. The Backtrack** |  If the algorithm reaches a cell where no numbers (1-4) can be legally placed, it hits a dead end. The function returns `false`, effectively taking a step backward to the previous cell. It changes that cell's number to the next available option and tries again. |
+| **4. The Backtrack** | If the algorithm reaches a cell where no numbers (1-4) can be legally placed, it hits a dead end. The function returns `false`, effectively taking a step backward to the previous cell. It changes that cell's number to the next available option and tries again. |
 | **5. View Validation** | Once the algorithm successfully fills all 16 cells, it runs a final check against the 16 boundary numbers provided in the input. It counts the visible "boxes" from the top, bottom, left, and right. If the grid perfectly matches the input constraints, we print the first solution encountered. If it fails, it backtracks and continues searching. |
+
+### ⭐ Bonus Features Implemented
+* **Dynamic Grid Sizing:** While the mandatory part of the project assumes a fixed 4x4 grid, this implementation dynamically handles token parsing and memory allocation to solve scalable grid sizes from a standard 4x4 puzzle all the way up to a massive 9x9 constraint.
 
 ---
 
@@ -57,7 +59,7 @@ The program must be compiled combining all necessary `.c` files in your `ex00` d
    ```
 
 3. **Execute with valid input:**
-   Provide the 16 boundary numbers as a single formatted string.
+   Provide the boundary numbers as a single formatted string. *(Note: The example below represents a standard 4x4 grid).*
    ```bash
    ./rush-01 "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
    ```
